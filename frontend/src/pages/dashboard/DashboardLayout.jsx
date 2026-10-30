@@ -1,0 +1,42 @@
+import React, { useState, useContext } from 'react';
+import Sidebar from '../../components/Sidebar';
+import { AuthContext } from '../../context/AuthContext';
+
+// Import Separated Module Pages
+import BhajanSahitya from './bhajanSahitya/BhajanSahitya';
+import Gallery from './gallery/Gallery';
+
+const DashboardLayout = () => {
+  const [activeTab, setActiveTab] = useState('bhajan-sahitya');
+  const { logout } = useContext(AuthContext);
+
+  // Render content page dynamically based on active tab
+  const renderActiveModule = () => {
+    switch (activeTab) {
+      case 'bhajan-sahitya':
+        return <BhajanSahitya />;
+      case 'gallery':
+        return <Gallery />;
+      default:
+        return <BhajanSahitya />;
+    }
+  };
+
+  return (
+    <div className="dashboard-layout">
+      {/* 1. Left Sidebar */}
+      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} onLogout={logout} />
+
+      {/* 2. Right Main View Container */}
+      <div className="dashboard-main-area d-flex flex-column h-100 position-relative">
+        
+        {/* Dynamic Page Render Area (ઇમેલ વાળો ટુકડો અહીંથી હટાવી દીધો છે) */}
+        <main className="dashboard-content-body flex-grow-1 overflow-hidden p-3">
+          {renderActiveModule()}
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardLayout;

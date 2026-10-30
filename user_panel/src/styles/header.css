@@ -1,0 +1,167 @@
+/* ================= Sticky Top Header ================= */
+.royal-header {
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fffbf6 100%);
+  border-bottom: 2px solid var(--border-gold);
+  box-shadow: 0 4px 20px rgba(160, 64, 0, 0.06);
+  z-index: 100;
+  width: 100%;
+}
+
+.royal-header-inner {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 12px 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.royal-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.royal-brand-emblem {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d84315 0%, #ff8f00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(216, 67, 21, 0.3);
+  border: 2px solid #fff3e0;
+  flex-shrink: 0;
+}
+
+.royal-brand-titles h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #b71c1c 0%, #e65100 60%, #ff8f00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.royal-brand-titles p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.header-shloka-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff3e0;
+  border: 1px solid #ffe0b2;
+  padding: 6px 14px;
+  border-radius: 50px;
+  color: #bf360c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ================= Header Right Actions ================= */
+.header-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Common Circular/Rounded Icon Button */
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.5px solid var(--border-gold);
+  background: #ffffff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(160, 64, 0, 0.04);
+  flex-shrink: 0;
+}
+
+/* 1. Header Face Recognition Camera Icon Button (Green Theme) */
+.header-face-btn {
+  color: #2e7d32;
+  border-color: #a5d6a7;
+  background: #f1f8e9;
+}
+
+.header-face-btn:hover {
+  background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+  color: #ffffff;
+  border-color: #1b5e20;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+  transform: translateY(-2px);
+}
+
+.header-face-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(0.95); }
+  to { transform: scale(1.05); }
+}
+
+/* 2. Header Gallery Icon Button (Saffron Theme) */
+.header-gallery-btn {
+  color: var(--primary-saffron);
+}
+
+.header-gallery-btn:hover,
+.header-gallery-btn.active {
+  background: linear-gradient(135deg, #d84315 0%, #ff6f00 100%);
+  color: #ffffff;
+  border-color: #bf360c;
+  box-shadow: 0 4px 14px rgba(216, 67, 21, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ================= Responsive Media Queries for Mobile Screens ================= */
+@media (max-width: 768px) {
+  .royal-header-inner {
+    padding: 10px 12px !important;
+  }
+
+  /* Hide center shloka badge on small mobile screens to save space */
+  .header-shloka-badge {
+    display: none !important;
+  }
+
+  .royal-brand-emblem {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .royal-brand-titles h1 {
+    font-size: 20px;
+  }
+
+  .royal-brand-titles p {
+    font-size: 10px;
+  }
+
+  .header-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
